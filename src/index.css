@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: Outfit;
+}
+
+.active {
+  background-color: #0d9488;
+  font-weight: 500;
+  color: white;
+}
+
+select,
+input,
+textarea {
+  border: 1px solid #c2c2c2;
+  outline-color: #000000;
+  border-radius: 4px;
+}
+
+.currency {
+  margin-left: 4px;
+  font-size: small;
+  color: gray;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none; /* Hide the arrows */
+  margin: 0; /* Remove margin */
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield; /* Change appearance to textfield */
+}
