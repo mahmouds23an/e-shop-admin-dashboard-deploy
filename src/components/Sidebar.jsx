@@ -1,5 +1,13 @@
 import { NavLink } from "react-router-dom";
-import { assets } from "../assets/admin_assets/assets";
+import {
+  MdAddBox,
+  MdEvent,
+  MdList,
+  MdShoppingCart,
+  MdLocalOffer,
+  MdFeedback,
+  MdRateReview,
+} from "react-icons/md";
 
 const Sidebar = () => {
   return (
@@ -9,11 +17,7 @@ const Sidebar = () => {
           className="flex items-center gap-2 p-2 transition-colors duration-200 rounded-md"
           to="/add"
         >
-          <img
-            src={assets.add_icon}
-            className="w-8 h-8"
-            alt="Add Products"
-          />
+          <MdAddBox className="w-8 h-8" />
           <span className="hidden md:inline">Add Products</span>
         </NavLink>
 
@@ -21,11 +25,7 @@ const Sidebar = () => {
           className="flex items-center gap-2 p-2 transition-colors duration-200 rounded-md"
           to="/event"
         >
-          <img
-            src={assets.event_icon}
-            className="w-8 h-8"
-            alt="Add Events"
-          />
+          <MdEvent className="w-8 h-8" />
           <span className="hidden md:inline">Add Events</span>
         </NavLink>
 
@@ -33,11 +33,7 @@ const Sidebar = () => {
           className="flex items-center gap-2 p-2 transition-colors duration-200 rounded-md"
           to="/list"
         >
-          <img
-            src={assets.list_icon}
-            className="w-8 h-8"
-            alt="Products List"
-          />
+          <MdList className="w-8 h-8" />{" "}
           <span className="hidden md:inline">Products List</span>
         </NavLink>
 
@@ -45,11 +41,7 @@ const Sidebar = () => {
           className="flex items-center gap-2 p-2 transition-colors duration-200 rounded-md"
           to="/orders"
         >
-          <img
-            src={assets.order_icon}
-            className="w-8 h-8"
-            alt="Orders"
-          />
+          <MdShoppingCart className="w-8 h-8" />
           <span className="hidden md:inline">Orders</span>
         </NavLink>
 
@@ -57,11 +49,7 @@ const Sidebar = () => {
           className="flex items-center gap-2 p-2 transition-colors duration-200 rounded-md"
           to="/promos"
         >
-          <img
-            src={assets.promo_icon}
-            className="w-8 h-8"
-            alt="Promo Codes"
-          />
+          <MdLocalOffer className="w-8 h-8" />
           <span className="hidden md:inline">Promo Codes</span>
         </NavLink>
 
@@ -69,11 +57,7 @@ const Sidebar = () => {
           className="flex items-center gap-2 p-2 transition-colors duration-200 rounded-md"
           to="/feedback"
         >
-          <img
-            src={assets.feedback_icon}
-            className="w-8 h-8"
-            alt="Users Feedback"
-          />
+          <MdFeedback className="w-8 h-8" />
           <span className="hidden md:inline">Users Feedback</span>
         </NavLink>
 
@@ -81,11 +65,7 @@ const Sidebar = () => {
           className="flex items-center gap-2 p-2 transition-colors duration-200 rounded-md"
           to="/orders-reviews"
         >
-          <img
-            src={assets.ordersReviews_icon}
-            className="w-8 h-8"
-            alt="Orders Reviews"
-          />
+          <MdRateReview className="w-8 h-8" />
           <span className="hidden md:inline">Orders Reviews</span>
         </NavLink>
       </div>
