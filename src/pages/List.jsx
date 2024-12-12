@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { backendUrl, currency } from "../App";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { assets as frontendAssets } from "../../../client/src/assets/frontend_assets/assets";
+import { assets } from "../assets/admin_assets/assets";
 import ImageModal from "../components/ImageModel";
 import { sizesOptions } from "../../helpers/helperFunctions";
 
@@ -240,7 +240,7 @@ const List = ({ token }) => {
         {filteredList.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-12">
             <img
-              src={frontendAssets.no_results_icon}
+              src={assets.no_results_icon}
               alt="No products found"
               className="w-96 h-auto mx-auto"
             />

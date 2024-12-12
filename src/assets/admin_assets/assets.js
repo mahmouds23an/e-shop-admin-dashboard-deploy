@@ -8,6 +8,7 @@ import promo_icon from "./promo.jpeg";
 import feedback_icon from "./feedbaks.jpeg";
 import ordersReviews_icon from "./orders reviews.png";
 import event_icon from "./event.png";
+import no_results_icon from "./no_results_icon.png";
 
 export const assets = {
   logo,
@@ -20,4 +21,5 @@ export const assets = {
   feedback_icon,
   ordersReviews_icon,
   event_icon,
+  no_results_icon,
 };
