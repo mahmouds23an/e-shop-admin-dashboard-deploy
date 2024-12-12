@@ -6,7 +6,7 @@ const Sidebar = () => {
     <div className="w-[20%] min-h-screen border-r-2 bg-gray-50 shadow-md">
       <div className="flex flex-col gap-4 pt-6 pl-4 text-[16px]">
         <NavLink
-          className="flex items-center gap-3 p-3 transition-colors duration-200  rounded-lg"
+          className="flex items-center gap-2 p-2 transition-colors duration-200 rounded-md"
           to="/add"
         >
           <img
@@ -18,7 +18,7 @@ const Sidebar = () => {
         </NavLink>
 
         <NavLink
-          className="flex items-center gap-3 p-3 transition-colors duration-200  rounded-lg"
+          className="flex items-center gap-2 p-2 transition-colors duration-200 rounded-md"
           to="/event"
         >
           <img
@@ -30,7 +30,7 @@ const Sidebar = () => {
         </NavLink>
 
         <NavLink
-          className="flex items-center gap-3 p-3 transition-colors duration-200  rounded-lg"
+          className="flex items-center gap-2 p-2 transition-colors duration-200 rounded-md"
           to="/list"
         >
           <img
@@ -42,7 +42,7 @@ const Sidebar = () => {
         </NavLink>
 
         <NavLink
-          className="flex items-center gap-3 p-3 transition-colors duration-200  rounded-lg"
+          className="flex items-center gap-2 p-2 transition-colors duration-200 rounded-md"
           to="/orders"
         >
           <img
@@ -54,7 +54,7 @@ const Sidebar = () => {
         </NavLink>
 
         <NavLink
-          className="flex items-center gap-3 p-3 transition-colors duration-200  rounded-lg"
+          className="flex items-center gap-2 p-2 transition-colors duration-200 rounded-md"
           to="/promos"
         >
           <img
@@ -66,7 +66,7 @@ const Sidebar = () => {
         </NavLink>
 
         <NavLink
-          className="flex items-center gap-3 p-3 transition-colors duration-200  rounded-lg"
+          className="flex items-center gap-2 p-2 transition-colors duration-200 rounded-md"
           to="/feedback"
         >
           <img
@@ -78,7 +78,7 @@ const Sidebar = () => {
         </NavLink>
 
         <NavLink
-          className="flex items-center gap-3 p-3 transition-colors duration-200  rounded-lg"
+          className="flex items-center gap-2 p-2 transition-colors duration-200 rounded-md"
           to="/orders-reviews"
         >
           <img
