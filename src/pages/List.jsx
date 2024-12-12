@@ -210,7 +210,7 @@ const List = ({ token }) => {
 
   return (
     <>
-      <div className="container mx-auto md:-ml-10 -mt-6 flex justify-between mb-4">
+      <div className="container mx-auto md:-ml-10 -mt-6 flex flex-col md:flex-row gap-4 justify-between mb-4">
         <p className="text-2xl font-bold">
           All Products List
           <span className="ml-2 px-3 py-1 rounded-full bg-gray-600 text-white">
@@ -223,7 +223,7 @@ const List = ({ token }) => {
             placeholder="Search products..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full border border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600"
+            className="w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600"
           />
         </div>
       </div>

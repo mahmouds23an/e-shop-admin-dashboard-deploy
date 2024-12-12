@@ -102,8 +102,8 @@ const Orders = ({ token }) => {
 
   return (
     <div className="bg-gray-50 mx-auto md:-ml-10 -mt-6">
-      <div className="flex md:flex-row flex-col md:gap-1 gap-3 justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold mb-4">
+      <div className="flex md:flex-row flex-col md:gap-1 gap-3 justify-between mb-6">
+        <h1 className="text-2xl font-bold mb-4 text-left">
           Orders{" "}
           <span className="font-normal text-gray-500">({orders.length})</span>
         </h1>
@@ -113,7 +113,7 @@ const Orders = ({ token }) => {
             placeholder="Search by ID or Amount..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full border border-gray-300 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent"
+            className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent"
           />
         </div>
       </div>
