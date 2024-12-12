@@ -11,7 +11,7 @@ import {
 
 const Sidebar = () => {
   return (
-    <div className="w-[20%] min-h-screen border-r-2 bg-gray-50 shadow-md">
+    <div className="w-[15%] min-h-screen border-r-2 bg-gray-50 shadow-md">
       <div className="flex flex-col gap-4 pt-6 pl-4 text-[16px]">
         <NavLink
           className="flex items-center gap-2 p-2 transition-colors duration-200 rounded-md"
