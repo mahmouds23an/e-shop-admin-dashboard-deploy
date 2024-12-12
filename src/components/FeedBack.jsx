@@ -43,12 +43,10 @@ const FeedBack = ({ token }) => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-semibold text-center mb-6">
-        Users Feedbacks
-      </h1>
+    <div className="container mx-auto md:-ml-10 -mt-6">
+      <h1 className="text-2xl font-bold mb-4">Users Feedbacks</h1>
       {feedbacks.length === 0 ? (
-        <div className="text-center text-lg text-gray-500">
+        <div className="text-2xl font-bold mb-4 text-center text-gray-400 mt-6">
           No feedbacks available
         </div>
       ) : (

@@ -101,12 +101,12 @@ const Orders = ({ token }) => {
   };
 
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50 mx-auto md:-ml-10 -mt-6">
       <div className="flex md:flex-row flex-col md:gap-1 gap-3 justify-between items-center mb-6">
-        <h3 className="text-3xl font-semibold text-gray-900">
+        <h1 className="text-2xl font-bold mb-4">
           Orders{" "}
           <span className="font-normal text-gray-500">({orders.length})</span>
-        </h3>
+        </h1>
         <div className="relative w-full md:w-72">
           <input
             type="search"

@@ -52,8 +52,8 @@ const OrdersReviews = ({ token }) => {
 
   return (
     <div>
-      <div className="flex items-center justify-between md:flex-row flex-col md:gap-0 gap-3">
-        <h3 className="text-3xl font-semibold text-gray-900">
+      <div className="container mx-auto md:-ml-10 -mt-6">
+        <h3 className="text-2xl font-bold mb-4">
           Orders Reviews{" "}
           <span className="font-normal text-gray-500">({count})</span>
         </h3>
@@ -105,7 +105,7 @@ const OrdersReviews = ({ token }) => {
           ))}
         </div>
       ) : (
-        <p className="text-gray-600 mt-4">No reviews available</p>
+        <p className="text-2xl font-bold mb-4 text-center text-gray-400 mt-6">No reviews available</p>
       )}
     </div>
   );

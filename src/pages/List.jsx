@@ -210,10 +210,10 @@ const List = ({ token }) => {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row justify-between items-center mb-6 px-4 md:px-8">
-        <p className="mb-4 text-gray-600 text-center md:text-left">
+      <div className="container mx-auto md:-ml-10 -mt-6 flex justify-between mb-4">
+        <p className="text-2xl font-bold">
           All Products List
-          <span className="ml-2 px-3 py-1 rounded-full bg-indigo-600 text-white">
+          <span className="ml-2 px-3 py-1 rounded-full bg-gray-600 text-white">
             {count}
           </span>
         </p>

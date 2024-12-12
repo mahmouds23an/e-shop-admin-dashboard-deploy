@@ -150,221 +150,226 @@ const Add = ({ token }) => {
   };
 
   return (
-    <form
-      onSubmit={onSubmitHandler}
-      className="flex flex-col gap-4 w-full max-w-[600px]"
-    >
-      {/* Image Upload */}
-      <div>
-        <p className="mb-2 text-sm font-semibold">Upload Image</p>
+    <div className="container mx-auto md:-ml-10 -mt-6">
+      <h1 className="text-2xl font-bold mb-4">New product</h1>
+      <form
+        onSubmit={onSubmitHandler}
+        className="flex flex-col gap-4 w-full max-w-[600px]"
+      >
+        {/* Image Upload */}
+        <div>
+          <p className="mb-2 text-sm font-semibold">Upload Image</p>
+          <div className="flex gap-4">
+            {[image1, image2, image3, image4].map((image, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <label htmlFor={`image${index + 1}`}>
+                  <img
+                    className="w-20 h-20 object-cover"
+                    src={
+                      !image ? assets.upload_area : URL.createObjectURL(image)
+                    }
+                    alt={`Image ${index + 1}`}
+                  />
+                  <input
+                    onChange={(e) => {
+                      const setImage = [
+                        setImage1,
+                        setImage2,
+                        setImage3,
+                        setImage4,
+                      ][index];
+                      setImage(e.target.files[0]);
+                    }}
+                    type="file"
+                    id={`image${index + 1}`}
+                    hidden
+                  />
+                </label>
+                {image && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const setImage = [
+                        setImage1,
+                        setImage2,
+                        setImage3,
+                        setImage4,
+                      ][index];
+                      setImage(false);
+                    }}
+                    className="mt-2 text-xs text-red-600"
+                  >
+                    Remove Image
+                  </button>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Product Information */}
+        <div>
+          <p className="mb-2 text-sm font-semibold">Product Name</p>
+          <input
+            className="w-full px-3 py-1 border border-gray-300 rounded-md"
+            type="text"
+            placeholder="Enter the product name"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+          />
+        </div>
+
+        <div>
+          <p className="mb-2 text-sm font-semibold">Product Description</p>
+          <textarea
+            className="w-full px-3 py-1 border border-gray-300 rounded-md resize-none h-24"
+            placeholder="Enter the product description"
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
+          />
+        </div>
+
+        {/* Category & Subcategory */}
         <div className="flex gap-4">
-          {[image1, image2, image3, image4].map((image, index) => (
-            <div key={index} className="flex flex-col items-center">
-              <label htmlFor={`image${index + 1}`}>
-                <img
-                  className="w-20 h-20 object-cover"
-                  src={!image ? assets.upload_area : URL.createObjectURL(image)}
-                  alt={`Image ${index + 1}`}
-                />
-                <input
-                  onChange={(e) => {
-                    const setImage = [
-                      setImage1,
-                      setImage2,
-                      setImage3,
-                      setImage4,
-                    ][index];
-                    setImage(e.target.files[0]);
-                  }}
-                  type="file"
-                  id={`image${index + 1}`}
-                  hidden
-                />
-              </label>
-              {image && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    const setImage = [
-                      setImage1,
-                      setImage2,
-                      setImage3,
-                      setImage4,
-                    ][index];
-                    setImage(false);
-                  }}
-                  className="mt-2 text-xs text-red-600"
-                >
-                  Remove Image
-                </button>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
+          <div className="w-1/2">
+            <p className="mb-2 text-sm font-semibold">Category</p>
+            <select
+              onChange={(e) => setCategory(e.target.value)}
+              className="w-full px-3 py-1 border border-gray-300 rounded-md"
+            >
+              <option value="Men">Men</option>
+              <option value="Women">Women</option>
+              <option value="Bra">Women bra</option>
+              <option value="Kids">Kids</option>
+              <option value="Babies">Babies</option>
+              <option value="Socks">Socks</option>
+              <option value="Textiles">Textiles</option>
+              <option value="Towels">Towels</option>
+            </select>
+          </div>
 
-      {/* Product Information */}
-      <div>
-        <p className="mb-2 text-sm font-semibold">Product Name</p>
-        <input
-          className="w-full px-3 py-1 border border-gray-300 rounded-md"
-          type="text"
-          placeholder="Enter the product name"
-          onChange={(e) => setName(e.target.value)}
-          value={name}
-        />
-      </div>
-
-      <div>
-        <p className="mb-2 text-sm font-semibold">Product Description</p>
-        <textarea
-          className="w-full px-3 py-1 border border-gray-300 rounded-md resize-none h-24"
-          placeholder="Enter the product description"
-          onChange={(e) => setDescription(e.target.value)}
-          value={description}
-        />
-      </div>
-
-      {/* Category & Subcategory */}
-      <div className="flex gap-4">
-        <div className="w-1/2">
-          <p className="mb-2 text-sm font-semibold">Category</p>
-          <select
-            onChange={(e) => setCategory(e.target.value)}
-            className="w-full px-3 py-1 border border-gray-300 rounded-md"
-          >
-            <option value="Men">Men</option>
-            <option value="Women">Women</option>
-            <option value="Bra">Women bra</option>
-            <option value="Kids">Kids</option>
-            <option value="Babies">Babies</option>
-            <option value="Socks">Socks</option>
-            <option value="Textiles">Textiles</option>
-            <option value="Towels">Towels</option>
-          </select>
+          <div className="w-1/2">
+            <p className="mb-2 text-sm font-semibold">Sub-Category</p>
+            <select
+              onChange={(e) => setSubCategory(e.target.value)}
+              className="w-full px-3 py-1 border border-gray-300 rounded-md"
+            >
+              <option value="Cottonil">Cottonil</option>
+              <option value="Dice">Dice</option>
+              <option value="Embarator">Embarator</option>
+              <option value="Jet">Jet</option>
+              <option value="Royal">Royal</option>
+              <option value="Cottolight">Cottolight</option>
+              <option value="Elnour">Elnour</option>
+              <option value="Solo">Solo</option>
+              <option value="Lasso">Lasso</option>
+              <option value="Elaraby">Elaraby</option>
+              <option value="Kalia">Kalia</option>
+              <option value="Bary">Bary</option>
+              <option value="Berlla">Berlla</option>
+              <option value="Colors">Colors</option>
+            </select>
+          </div>
         </div>
 
-        <div className="w-1/2">
-          <p className="mb-2 text-sm font-semibold">Sub-Category</p>
-          <select
-            onChange={(e) => setSubCategory(e.target.value)}
-            className="w-full px-3 py-1 border border-gray-300 rounded-md"
-          >
-            <option value="Cottonil">Cottonil</option>
-            <option value="Dice">Dice</option>
-            <option value="Embarator">Embarator</option>
-            <option value="Jet">Jet</option>
-            <option value="Royal">Royal</option>
-            <option value="Cottolight">Cottolight</option>
-            <option value="Elnour">Elnour</option>
-            <option value="Solo">Solo</option>
-            <option value="Lasso">Lasso</option>
-            <option value="Elaraby">Elaraby</option>
-            <option value="Kalia">Kalia</option>
-            <option value="Bary">Bary</option>
-            <option value="Berlla">Berlla</option>
-            <option value="Colors">Colors</option>
-          </select>
-        </div>
-      </div>
-
-      {/* Price & Cost Price */}
-      <div className="flex gap-4">
-        <div className="w-1/2">
-          <p className="mb-2 text-sm font-semibold">Cost Price</p>
-          <input
-            className="w-full px-3 py-1 border border-gray-300 rounded-md"
-            type="number"
-            placeholder="Enter cost price"
-            onChange={(e) => setCostPrice(e.target.value)}
-            value={costPrice}
-          />
-        </div>
-
-        <div className="w-1/2">
-          <p className="mb-2 text-sm font-semibold">Product Price</p>
-          <input
-            className="w-full px-3 py-1 border border-gray-300 rounded-md"
-            type="number"
-            placeholder="Enter product price"
-            onChange={(e) => setPrice(e.target.value)}
-            value={price}
-          />
-        </div>
-      </div>
-
-      {/* Best Seller */}
-      <div>
-        <label className="flex items-center gap-2">
-          <input
-            type="checkbox"
-            checked={bestSeller}
-            onChange={() => setBestSeller(!bestSeller)}
-            className="h-4 w-4"
-          />
-          <span className="text-sm">Best Seller</span>
-        </label>
-      </div>
-
-      {/* Sizes */}
-      <div>
-        <p className="mb-2 text-sm font-semibold">Select Sizes</p>
-        <div className="grid grid-cols-3 md:grid-cols-5 gap-2">
-          {availableSizes.map((size) => (
-            <label key={size} className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                value={size}
-                checked={sizes.includes(size)}
-                onChange={() => {
-                  setSizes((prevSizes) =>
-                    prevSizes.includes(size)
-                      ? prevSizes.filter((s) => s !== size)
-                      : [...prevSizes, size]
-                  );
-                }}
-                className="h-4 w-4"
-              />
-              <span className="text-sm">{size}</span>
-            </label>
-          ))}
-        </div>
-      </div>
-
-      {/* Discount */}
-      <div>
-        <label className="flex items-center gap-2">
-          <input
-            type="checkbox"
-            checked={discountStatus}
-            onChange={() => setDiscountStatus(!discountStatus)}
-            className="h-4 w-4"
-          />
-          <span className="text-sm">Apply Discount</span>
-        </label>
-        {discountStatus && (
-          <div className="mt-2">
-            <p className="mb-2 text-sm font-semibold">Discounted Price</p>
+        {/* Price & Cost Price */}
+        <div className="flex gap-4">
+          <div className="w-1/2">
+            <p className="mb-2 text-sm font-semibold">Cost Price</p>
             <input
               className="w-full px-3 py-1 border border-gray-300 rounded-md"
               type="number"
-              placeholder="Enter discounted price"
-              onChange={(e) => setDiscountedPrice(e.target.value)}
-              value={discountedPrice}
+              placeholder="Enter cost price"
+              onChange={(e) => setCostPrice(e.target.value)}
+              value={costPrice}
             />
           </div>
-        )}
-      </div>
 
-      {/* Submit Button */}
-      <button
-        type="submit"
-        className="mt-4 bg-blue-500 text-white py-2 rounded-md"
-        disabled={loading}
-      >
-        {loading ? "Adding..." : "Add Product"}
-      </button>
-    </form>
+          <div className="w-1/2">
+            <p className="mb-2 text-sm font-semibold">Product Price</p>
+            <input
+              className="w-full px-3 py-1 border border-gray-300 rounded-md"
+              type="number"
+              placeholder="Enter product price"
+              onChange={(e) => setPrice(e.target.value)}
+              value={price}
+            />
+          </div>
+        </div>
+
+        {/* Best Seller */}
+        <div>
+          <label className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              checked={bestSeller}
+              onChange={() => setBestSeller(!bestSeller)}
+              className="h-4 w-4"
+            />
+            <span className="text-sm">Best Seller</span>
+          </label>
+        </div>
+
+        {/* Sizes */}
+        <div>
+          <p className="mb-2 text-sm font-semibold">Select Sizes</p>
+          <div className="grid grid-cols-3 md:grid-cols-5 gap-2">
+            {availableSizes.map((size) => (
+              <label key={size} className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  value={size}
+                  checked={sizes.includes(size)}
+                  onChange={() => {
+                    setSizes((prevSizes) =>
+                      prevSizes.includes(size)
+                        ? prevSizes.filter((s) => s !== size)
+                        : [...prevSizes, size]
+                    );
+                  }}
+                  className="h-4 w-4"
+                />
+                <span className="text-sm">{size}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        {/* Discount */}
+        <div>
+          <label className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              checked={discountStatus}
+              onChange={() => setDiscountStatus(!discountStatus)}
+              className="h-4 w-4"
+            />
+            <span className="text-sm">Apply Discount</span>
+          </label>
+          {discountStatus && (
+            <div className="mt-2">
+              <p className="mb-2 text-sm font-semibold">Discounted Price</p>
+              <input
+                className="w-full px-3 py-1 border border-gray-300 rounded-md"
+                type="number"
+                placeholder="Enter discounted price"
+                onChange={(e) => setDiscountedPrice(e.target.value)}
+                value={discountedPrice}
+              />
+            </div>
+          )}
+        </div>
+
+        {/* Submit Button */}
+        <button
+          type="submit"
+          className="mt-4 bg-blue-500 text-white py-2 rounded-md"
+          disabled={loading}
+        >
+          {loading ? "Adding..." : "Add Product"}
+        </button>
+      </form>
+    </div>
   );
 };
 
