@@ -9,9 +9,9 @@
 }
 
 .active {
-  background-color: #0d9488;
+  background-color: #c2c2c2;
   font-weight: 500;
-  color: white;
+  color: black;
 }
 
 select,

@@ -3,90 +3,90 @@ import { assets } from "../assets/admin_assets/assets";
 
 const Sidebar = () => {
   return (
-    <div className="w-[18%] min-h-screen border-r-2">
-      <div className="flex flex-col gap-4 pt-6 pl-[20%] text-[15px]">
+    <div className="w-[20%] min-h-screen border-r-2 bg-gray-50 shadow-md">
+      <div className="flex flex-col gap-4 pt-6 pl-4 text-[16px]">
         <NavLink
-          className="items-center flex gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l"
+          className="flex items-center gap-3 p-3 transition-colors duration-200  rounded-lg"
           to="/add"
         >
           <img
             src={assets.add_icon}
-            className="w-10 md:w-5 h-10 md:h-5"
-            alt=""
+            className="w-8 h-8"
+            alt="Add Products"
           />
-          <p className="hidden md:block">Add Products</p>
+          <span className="hidden md:inline">Add Products</span>
         </NavLink>
 
         <NavLink
-          className="items-center flex gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l"
+          className="flex items-center gap-3 p-3 transition-colors duration-200  rounded-lg"
           to="/event"
         >
           <img
             src={assets.event_icon}
-            className="w-10 md:w-5 h-10 md:h-5"
-            alt=""
+            className="w-8 h-8"
+            alt="Add Events"
           />
-          <p className="hidden md:block">Add Events</p>
+          <span className="hidden md:inline">Add Events</span>
         </NavLink>
 
         <NavLink
-          className="items-center flex gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l"
+          className="flex items-center gap-3 p-3 transition-colors duration-200  rounded-lg"
           to="/list"
         >
           <img
             src={assets.list_icon}
-            className="w-10 md:w-5 h-10 md:h-5"
-            alt=""
+            className="w-8 h-8"
+            alt="Products List"
           />
-          <p className="hidden md:block">Products List</p>
+          <span className="hidden md:inline">Products List</span>
         </NavLink>
 
         <NavLink
-          className="items-center flex gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l"
+          className="flex items-center gap-3 p-3 transition-colors duration-200  rounded-lg"
           to="/orders"
         >
           <img
             src={assets.order_icon}
-            className="w-10 md:w-5 h-10 md:h-5"
-            alt=""
+            className="w-8 h-8"
+            alt="Orders"
           />
-          <p className="hidden md:block">Orders</p>
+          <span className="hidden md:inline">Orders</span>
         </NavLink>
 
         <NavLink
-          className="items-center flex gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l"
+          className="flex items-center gap-3 p-3 transition-colors duration-200  rounded-lg"
           to="/promos"
         >
           <img
             src={assets.promo_icon}
-            className="w-10 md:w-5 h-10 md:h-5"
-            alt=""
+            className="w-8 h-8"
+            alt="Promo Codes"
           />
-          <p className="hidden md:block">Promo Codes</p>
+          <span className="hidden md:inline">Promo Codes</span>
         </NavLink>
 
         <NavLink
-          className="items-center flex gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l"
+          className="flex items-center gap-3 p-3 transition-colors duration-200  rounded-lg"
           to="/feedback"
         >
           <img
             src={assets.feedback_icon}
-            className="w-10 md:w-5 h-10 md:h-5"
-            alt=""
+            className="w-8 h-8"
+            alt="Users Feedback"
           />
-          <p className="hidden md:block">Users FeedBack</p>
+          <span className="hidden md:inline">Users Feedback</span>
         </NavLink>
 
         <NavLink
-          className="items-center flex gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l"
+          className="flex items-center gap-3 p-3 transition-colors duration-200  rounded-lg"
           to="/orders-reviews"
         >
           <img
             src={assets.ordersReviews_icon}
-            className="w-10 md:w-5 h-10 md:h-5"
-            alt=""
+            className="w-8 h-8"
+            alt="Orders Reviews"
           />
-          <p className="hidden md:block">Orders Reviews</p>
+          <span className="hidden md:inline">Orders Reviews</span>
         </NavLink>
       </div>
     </div>
