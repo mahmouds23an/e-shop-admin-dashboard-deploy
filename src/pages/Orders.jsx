@@ -149,7 +149,7 @@ const Orders = ({ token }) => {
                   {highlightText(order._id.slice(-5), searchTerm)}
                 </td>
                 <td className="px-4 py-3 border-b hidden sm:table-cell">
-                  {new Date(order.date).toLocaleDateString()}
+                  {new Date(order.date).toDateString()}
                 </td>
                 <td className="px-4 py-3 border-b">
                   <select

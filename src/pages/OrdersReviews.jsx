@@ -73,11 +73,12 @@ const OrdersReviews = ({ token }) => {
           {reviews.map((review) => (
             <div
               key={review._id}
+              
               className="border p-4 rounded-lg shadow-lg bg-white"
             >
               <div>
                 <h4 className="text-lg font-semibold mb-2">
-                  Order ID: {review._id}
+                  Order ID: {review._id.slice(-5)}
                 </h4>
               </div>
 
