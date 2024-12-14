@@ -194,6 +194,8 @@ const List = ({ token }) => {
   });
 
   const highlightText = (text, searchTerm) => {
+    if (!text || typeof text !== "string") return text || "";
+
     if (!searchTerm) return text;
 
     const parts = text.split(new RegExp(`(${searchTerm})`, "gi"));
@@ -249,10 +251,14 @@ const List = ({ token }) => {
         ) : (
           filteredList.map((item, index) => (
             <div
-              className="grid grid-cols-3 md:grid-cols-[1.5fr_2.5fr_1fr_1fr_2fr] items-center py-3 px-4 border border-gray-300 text-sm gap-3 rounded-lg bg-white shadow-sm hover:bg-gray-50 transition duration-200"
+              className="grid grid-cols-3 md:grid-cols-[1.5fr_2.5fr_1fr_1fr_2fr] items-center py-3 
+              px-4 border border-gray-300 text-sm gap-3 rounded-lg bg-white shadow-sm hover:bg-gray-50 transition duration-200"
               key={index}
             >
-              <div className="hidden md:block relative w-16 h-16 rounded-lg overflow-hidden shadow-md border border-gray-300 hover:shadow-lg transition-shadow duration-200 cursor-pointer">
+              <div
+                className="hidden md:block relative w-16 h-16 rounded-lg overflow-hidden shadow-md 
+              border border-gray-300 hover:shadow-lg transition-shadow duration-200 cursor-pointer"
+              >
                 <img
                   src={item.image[0]}
                   className="object-cover w-full h-full"
@@ -261,16 +267,16 @@ const List = ({ token }) => {
                 />
               </div>
               <p className="text-ellipsis max-w-full overflow-hidden whitespace-nowrap">
-                {highlightText(item.name, searchTerm)}
+                {highlightText(item?.name || "", searchTerm)}
               </p>
               <p className="hidden md:block">
-                {highlightText(item.category, searchTerm)}
+                {highlightText(item?.category || "", searchTerm)}
               </p>
               <p>
                 {highlightText(
                   item?.discountedPrice
-                    ? item?.discountedPrice
-                    : item?.price.toString(),
+                    ? String(item?.discountedPrice)
+                    : String(item?.price || ""),
                   searchTerm
                 )}
               </p>
@@ -316,7 +322,7 @@ const List = ({ token }) => {
               </h2>
 
               {/* Product Information Fields */}
-              {["name","description", "costPrice", "price" ].map((field) => (
+              {["name", "description", "costPrice", "price"].map((field) => (
                 <div className="mb-4" key={field}>
                   <label
                     htmlFor={field}
