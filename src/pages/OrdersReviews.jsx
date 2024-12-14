@@ -95,9 +95,9 @@ const OrdersReviews = ({ token }) => {
                   <p>
                     <strong>Review:</strong> {review.review.comment}
                   </p>
-                  <p className="text-gray-500 text-sm">
+                  <p>
                     <strong>Date:</strong>{" "}
-                    {new Date(review.review.date).toLocaleDateString()}
+                    {new Date(review.review.date).toDateString()}
                   </p>
                 </div>
               </div>
@@ -105,7 +105,9 @@ const OrdersReviews = ({ token }) => {
           ))}
         </div>
       ) : (
-        <p className="text-2xl font-bold mb-4 text-center text-gray-400 mt-6">No reviews available</p>
+        <p className="text-2xl font-bold mb-4 text-center text-gray-400 mt-6">
+          No reviews available
+        </p>
       )}
     </div>
   );

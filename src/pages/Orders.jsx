@@ -233,7 +233,7 @@ const Orders = ({ token }) => {
               </h5>
               <p>
                 <strong>Order Date:</strong>{" "}
-                {new Date(selectedOrder.date).toLocaleDateString()}
+                {new Date(selectedOrder.date).toDateString()}
               </p>
               <p>
                 <strong>Delivery Fee:</strong>

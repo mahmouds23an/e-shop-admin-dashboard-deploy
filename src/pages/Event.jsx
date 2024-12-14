@@ -206,9 +206,9 @@ const Event = ({ token }) => {
         <table className="min-w-full bg-white shadow-md rounded border border-gray-400">
           <thead>
             <tr className="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
-              <th className="py-3 px-6 text-left">Title</th>
+              <th className="py-3 px-6 text-left hidden md:block">Title</th>
               <th className="py-3 px-6 text-left">Description</th>
-              <th className="py-3 px-6 text-left">Link Text</th>
+              <th className="py-3 px-6 text-left hidden md:block">Link Text</th>
               <th className="py-3 px-6 text-left">End Date</th>
               <th className="py-3 px-6 text-left">Active</th>
               <th className="py-3 px-6 text-left">Actions</th>
@@ -221,9 +221,9 @@ const Event = ({ token }) => {
                   key={event._id}
                   className="border-gray-200 hover:bg-gray-100"
                 >
-                  <td className="py-3 px-6 text-left">{event.title}</td>
+                  <td className="py-3 px-6 text-left hidden md:block">{event.title}</td>
                   <td className="py-3 px-6 text-left">{event.description}</td>
-                  <td className="py-3 px-6 text-left">{event.linkText}</td>
+                  <td className="py-3 px-6 text-left hidden md:block">{event.linkText}</td>
                   <td className="py-3 px-6 text-left">
                     {new Date(event.endDate).toDateString()}
                   </td>

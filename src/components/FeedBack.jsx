@@ -57,23 +57,28 @@ const FeedBack = ({ token }) => {
                 <th className="py-2 px-4 border-b">Name</th>
                 <th className="py-2 px-4 border-b">Phone</th>
                 <th className="py-2 px-4 border-b">Feedback</th>
-                <th className="py-2 px-4 border-b">Date</th>
-                <th className="py-2 px-4 border-b">Actions</th>
+                <th className="py-2 px-4 border-b hidden md:block">Date</th>
+                <th className="py-2 px-4 border-b hidden md:table-cell">
+                  Actions
+                </th>
               </tr>
             </thead>
             <tbody>
               {feedbacks.map((feedback) => (
                 <tr key={feedback._id} className="border-b hover:bg-gray-50">
-                  <td className="py-3 px-4">{feedback.name || "Anonymous"}</td>
+                  <td className="py-3 px-4">
+                    {feedback.name.split(" ")[0] || "Anonymous"}
+                  </td>
                   <td className="py-3 px-4">{feedback.phone || "N/A"}</td>
                   <td className="py-3 px-4">{feedback.feedBack}</td>
-                  <td className="py-3 px-4">
-                    {new Date(feedback.createdAt).toLocaleDateString()}
+                  <td className="py-3 px-4 hidden md:block">
+                    {new Date(feedback.createdAt).toDateString()}
                   </td>
                   <td className="py-3 px-4">
                     <button
                       onClick={() => handleDelete(feedback._id)}
-                      className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
+                      className="bg-red-500 text-white px-4 py-2 
+                      rounded-md hover:bg-red-600 hidden md:table-cell"
                     >
                       Delete
                     </button>
