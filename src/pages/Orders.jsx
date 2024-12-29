@@ -163,7 +163,6 @@ const Orders = ({ token }) => {
                     {[
                       "Order Placed",
                       "Packing",
-                      "Shipped",
                       "Out for delivery",
                       "Delivered",
                     ].map((status) => (
