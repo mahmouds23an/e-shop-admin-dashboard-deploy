@@ -10,7 +10,7 @@ const Navbar = ({ setToken }) => {
       </Link>
       <button
         onClick={() => setToken("")}
-        className="bg-white text-black border hover:bg-teal-600 hover:border-teal-600 duration-300 
+        className="bg-white text-black border hover:bg-black duration-300 
         hover:text-white px-5 py-2 rounded-full sm:px-7 sm:py-2 text-xs sm:text-sm"
       >
         Logout
