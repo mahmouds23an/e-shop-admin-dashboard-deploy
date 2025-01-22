@@ -19,6 +19,7 @@ const List = ({ token }) => {
     category: "",
     subCategory: "",
     bestSeller: false,
+    isActive: false,
     discountStatus: false,
     discountedPrice: "",
     sizes: [],
@@ -33,7 +34,7 @@ const List = ({ token }) => {
       );
       if (response.data.success) {
         setList(response.data.products);
-        setCount(response.data.count);
+        setCount(response.data.products.length);
       }
       if (response.data.count === 0) {
         setList([]);
@@ -105,6 +106,7 @@ const List = ({ token }) => {
         category: product.category,
         subCategory: product.subCategory,
         bestSeller: Boolean(product.bestSeller),
+        isActive: Boolean(product.isActive),
         discountStatus: product.discountStatus || false,
         discountedPrice: product.discountedPrice || "",
         sizes: product.sizes || [],
@@ -135,6 +137,7 @@ const List = ({ token }) => {
           category: formData.category,
           subCategory: formData.subCategory,
           bestSeller: formData.bestSeller,
+          isActive: formData.isActive,
           sizes: JSON.stringify(formData.sizes),
           discountStatus: formData.discountStatus,
           discountedPrice: formData.discountStatus
@@ -156,6 +159,7 @@ const List = ({ token }) => {
           category: "",
           subCategory: "",
           bestSeller: false,
+          isActive: false,
           discountStatus: false,
           discountedPrice: "",
         });
@@ -316,8 +320,8 @@ const List = ({ token }) => {
 
           {/* Modal */}
           <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-lg shadow-lg w-full max-w-lg p-8 mx-4 relative overflow-y-auto max-h-[90vh]">
-              <h2 className="text-2xl font-semibold text-gray-800 mb-6">
+            <div className="bg-white rounded-lg shadow-lg w-full max-w-lg p-4 mx-4 relative overflow-y-auto max-h-[90vh]">
+              <h2 className="text-2xl font-semibold text-gray-800 mb-2">
                 Edit Product
               </h2>
 
@@ -431,18 +435,33 @@ const List = ({ token }) => {
               </div>
 
               {/* Best Seller Checkbox */}
-              <div className="flex items-center mb-4">
-                <input
-                  type="checkbox"
-                  checked={formData.bestSeller || false}
-                  onChange={(e) =>
-                    setFormData({ ...formData, bestSeller: e.target.checked })
-                  }
-                  className="w-5 h-5 text-indigo-500 focus:ring-indigo-500 rounded"
-                />
-                <label className="ml-2 text-gray-700 text-sm">
-                  Mark as Best Seller
-                </label>
+              <div className="flex items-center mb-4 gap-2">
+                <div className="flex items-center">
+                  <input
+                    type="checkbox"
+                    checked={formData.bestSeller || false}
+                    onChange={(e) =>
+                      setFormData({ ...formData, bestSeller: e.target.checked })
+                    }
+                    className="w-5 h-5 text-indigo-500 focus:ring-indigo-500 rounded"
+                  />
+                  <label className="ml-2 text-gray-700 text-sm">
+                    Mark as Best Seller
+                  </label>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    type="checkbox"
+                    checked={formData.isActive || false}
+                    onChange={(e) =>
+                      setFormData({ ...formData, isActive: e.target.checked })
+                    }
+                    className="w-5 h-5 text-indigo-500 focus:ring-indigo-500 rounded"
+                  />
+                  <label className="ml-2 text-gray-700 text-sm">
+                    Mark as Active
+                  </label>
+                </div>
               </div>
 
               {/* Action Buttons */}
