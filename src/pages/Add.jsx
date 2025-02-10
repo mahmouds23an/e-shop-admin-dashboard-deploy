@@ -4,7 +4,10 @@ import { assets } from "../assets/admin_assets/assets";
 import axios from "axios";
 import { backendUrl } from "../App";
 import { toast } from "react-toastify";
-import { sizesOptions } from "../../helpers/helperFunctions";
+import {
+  sizesOptions,
+  subCategoriesOptions,
+} from "../../helpers/helperFunctions";
 
 const Add = ({ token }) => {
   const [availableSizes, setAvailableSizes] = useState(sizesOptions.Men);
@@ -18,7 +21,7 @@ const Add = ({ token }) => {
   const [price, setPrice] = useState("");
   const [costPrice, setCostPrice] = useState("");
   const [category, setCategory] = useState("Men");
-  const [subCategory, setSubCategory] = useState("Cottonil");
+  const [subCategory, setSubCategory] = useState(subCategoriesOptions[0]);
   const [bestSeller, setBestSeller] = useState(false);
   const [sizes, setSizes] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -121,8 +124,8 @@ const Add = ({ token }) => {
         setDescription("");
         setPrice("");
         setCostPrice("");
-        setCategory("Men");
-        setSubCategory("Topwear");
+        setCategory(sizesOptions.Men);
+        setSubCategory(subCategoriesOptions[0]);
         setBestSeller(false);
         setSizes([]);
         setAvailableSizes(sizesOptions.Men);
@@ -259,15 +262,15 @@ const Add = ({ token }) => {
               <option value="Embarator">Embarator</option>
               <option value="Jet">Jet</option>
               <option value="Royal">Royal</option>
-              <option value="Cottolight">Cottolight</option>
+              <option value="Vona">Vona</option>
               <option value="Elnour">Elnour</option>
               <option value="Solo">Solo</option>
               <option value="Lasso">Lasso</option>
-              <option value="Elaraby">Elaraby</option>
+              <option value="Rotana">Rotana</option>
               <option value="Kalia">Kalia</option>
+              <option value="Colors">Colors</option>
               <option value="Bary">Bary</option>
               <option value="Berlla">Berlla</option>
-              <option value="Colors">Colors</option>
             </select>
           </div>
         </div>
