@@ -249,6 +249,9 @@ const Orders = ({ token }) => {
               <p>
                 <strong>Order Status:</strong> {selectedOrder.status}
               </p>
+              <p className="text-red-700 underline">
+                <strong>Order Note:</strong> {selectedOrder.note}
+              </p>
             </div>
 
             {/* Order Items */}
@@ -299,7 +302,7 @@ const Orders = ({ token }) => {
                   onClick={closeModal}
                   className="bg-red-500 text-white px-4 py-[6px] rounded-lg hover:bg-red-600 transition duration=200"
                 >
-                  Cancel
+                  Close
                 </button>
               </div>
             </div>
