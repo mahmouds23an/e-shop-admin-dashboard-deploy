@@ -26,8 +26,6 @@ export const sizesOptions = {
     "7XL",
     "8XL",
     "FREE-SIZE",
-  ],
-  Bra: [
     "1 or 30",
     "2 or 34",
     "3 or 36",
