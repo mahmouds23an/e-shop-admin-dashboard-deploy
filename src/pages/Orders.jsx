@@ -11,6 +11,7 @@ const Orders = ({ token }) => {
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  console.log(selectedOrder);
   const fetchAllOrders = async () => {
     if (!token) return;
     try {
@@ -249,9 +250,19 @@ const Orders = ({ token }) => {
               <p>
                 <strong>Order Status:</strong> {selectedOrder.status}
               </p>
-              <p className="text-red-700 underline">
-                <strong>Order Note:</strong> {selectedOrder.note}
-              </p>
+              {selectedOrder.promoCode && (
+                <p className="">
+                  <strong>Promo: </strong> {selectedOrder.promoCode}
+                </p>
+              )}
+              {selectedOrder.note && (
+                <p className="">
+                  <strong>Order Note:</strong>{" "}
+                  <span className="text-black text-xl text-bold">
+                    {selectedOrder.note}
+                  </span>
+                </p>
+              )}
             </div>
 
             {/* Order Items */}
@@ -277,7 +288,7 @@ const Orders = ({ token }) => {
                       key={index}
                       className="hover:bg-gray-50 transition duration-200"
                     >
-                      <td className="border-b px-4 py-[10px] text-ellipsis overflow-hidden whitespace-nowrap max-w-[150px]">
+                      <td className="border-b px-4 py-[10px] overflow-hidden line-clamp max-w-[150px]">
                         {item.name}
                       </td>
                       <td className="border-b px-4 py-[10px]">

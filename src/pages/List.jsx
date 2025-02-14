@@ -270,7 +270,7 @@ const List = ({ token }) => {
                   onClick={() => setEnlargedImage(item.image[0])}
                 />
               </div>
-              <p className="text-ellipsis max-w-full overflow-hidden whitespace-nowrap">
+              <p className="max-w-full overflow-hidden line-clamp">
                 {highlightText(item?.name || "", searchTerm)}
               </p>
               <p className="hidden md:block">
