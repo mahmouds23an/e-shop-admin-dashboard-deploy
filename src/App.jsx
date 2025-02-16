@@ -14,7 +14,7 @@ import Home from "./components/Home";
 import Promos from "./pages/Promos";
 import FeedBack from "./components/FeedBack";
 import OrdersReviews from "./pages/OrdersReviews";
-import Event from "./pages/Event";
+import Users from "./pages/Users";
 
 export const backendUrl = import.meta.env.VITE_BACKEND_URL;
 export const currency = "EGP";
@@ -53,7 +53,7 @@ const App = () => {
               <Routes>
                 <Route path="/" element={<Home token={token} />} />
                 <Route path="/add" element={<Add token={token} />} />
-                <Route path="/event" element={<Event token={token} />} />
+                <Route path="/users" element={<Users token={token} />} />
                 <Route path="/list" element={<List token={token} />} />
                 <Route path="/orders" element={<Orders token={token} />} />
                 <Route path="/promos" element={<Promos token={token} />} />

@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
 import {
   MdAddBox,
-  MdEvent,
   MdList,
   MdShoppingCart,
   MdLocalOffer,
   MdFeedback,
   MdRateReview,
+  MdVerifiedUser,
 } from "react-icons/md";
 
 const Sidebar = () => {
@@ -23,10 +23,10 @@ const Sidebar = () => {
 
         <NavLink
           className="flex items-center gap-2 p-2 transition-colors duration-200 rounded-md"
-          to="/event"
+          to="/users"
         >
-          <MdEvent className="w-8 h-8" />
-          <span className="hidden md:inline">Add Events</span>
+          <MdVerifiedUser className="w-8 h-8" />
+          <span className="hidden md:inline">Users</span>
         </NavLink>
 
         <NavLink

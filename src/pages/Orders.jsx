@@ -11,7 +11,7 @@ const Orders = ({ token }) => {
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  console.log(selectedOrder);
+
   const fetchAllOrders = async () => {
     if (!token) return;
     try {
@@ -31,7 +31,7 @@ const Orders = ({ token }) => {
     } catch (error) {
       toast.error(error.message);
     }
-  };
+  }; 
 
   const statusHandler = async (e, orderId) => {
     try {
