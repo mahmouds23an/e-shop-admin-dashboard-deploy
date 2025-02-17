@@ -224,6 +224,9 @@ const Orders = ({ token }) => {
                 <strong>Phone:</strong> {selectedOrder.address.phone}
               </p>
               <p>
+                <strong>City:</strong> {selectedOrder.address.city}
+              </p>
+              <p>
                 <strong>Address:</strong> {selectedOrder.address.street},{" "}
                 {selectedOrder.address.city}
               </p>
