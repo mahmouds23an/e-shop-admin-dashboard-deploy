@@ -47,7 +47,7 @@ const Home = ({ token }) => {
         setOrders(
           ordersRes.data.orders.sort(
             (a, b) => new Date(b.date) - new Date(a.date)
-        )
+          ) // Fixed: Added closing parenthesis
         );
       }
       if (usersRes.data.success) {
@@ -103,18 +103,23 @@ const Home = ({ token }) => {
       }, 0),
   };
 
-  // Calculate best sellers for current period and all time
+  // Calculate best sellers
   const getBestSellers = (ordersList) => {
-    return products
-      .map((product) => {
-        const timesSold = ordersList.reduce((count, order) => {
-          const productInOrder = order.items.filter(
-            (item) => item.id === product.id
-          ).length;
-          return count + productInOrder;
-        }, 0);
-        return { ...product, timesSold };
-      })
+    const productSales = {};
+
+    ordersList.forEach((order) => {
+      order.items.forEach((item) => {
+        if (!productSales[item.id]) {
+          productSales[item.id] = {
+            ...item,
+            timesSold: 0,
+          };
+        }
+        productSales[item.id].timesSold += 1;
+      });
+    });
+
+    return Object.values(productSales)
       .sort((a, b) => b.timesSold - a.timesSold)
       .slice(0, 5);
   };
@@ -133,7 +138,8 @@ const Home = ({ token }) => {
 
   const StatCard = ({ title, value, icon: Icon, color }) => (
     <div
-      className={`bg-gradient-to-br ${color} p-6 rounded-2xl shadow-xl transform hover:scale-[1.02] transition-transform duration-200`}
+      className={`bg-gradient-to-br ${color} p-6 rounded-2xl shadow-xl 
+      transform hover:scale-[1.02] transition-transform duration-200`}
     >
       <div className="flex items-center justify-between">
         <div>
@@ -148,14 +154,23 @@ const Home = ({ token }) => {
   );
 
   const ProductCard = ({ product, rank }) => (
-    <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow duration-200 group">
+    <div
+      className="bg-white rounded-xl p-1 shadow-sm 
+    hover:shadow-md transition-shadow duration-200 group"
+    >
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg">
+          <div
+            className="w-10 h-10 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-600 
+          flex items-center justify-center text-white font-bold text-lg"
+          >
             {rank}
           </div>
           <div>
-            <h4 className="font-semibold text-gray-800 group-hover:text-indigo-600 transition-colors">
+            <h4
+              className="font-semibold text-gray-800 
+            group-hover:text-indigo-600 transition-colors"
+            >
               {product.name}
             </h4>
             <p className="text-sm text-gray-500">
@@ -174,12 +189,15 @@ const Home = ({ token }) => {
   );
 
   return (
-    <div className="p-8 max-w-7xl mx-auto bg-gray-50 min-h-screen">
+    <div className="max-w-7xl mx-auto bg-gray-50 min-h-screen">
       <div className="mb-8">
         <h1 className="text-4xl font-bold text-gray-900 mb-6">
           Analytics Dashboard
         </h1>
-        <div className="flex flex-wrap gap-4 items-center bg-gradient-to-r from-indigo-600 to-purple-600 p-6 rounded-2xl shadow-lg">
+        <div
+          className="flex flex-wrap gap-4 items-center bg-gradient-to-r 
+        from-indigo-600 to-purple-600 p-6 rounded-2xl shadow-lg"
+        >
           <div className="flex items-center space-x-3">
             <Calendar className="text-white w-6 h-6" />
             <span className="text-white font-medium text-lg">Date Range:</span>
@@ -189,14 +207,16 @@ const Home = ({ token }) => {
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
-              className="px-4 py-2 border rounded-lg bg-white/10 text-white focus:ring-2 focus:ring-white focus:border-white placeholder-white/50"
+              className="px-4 py-2 border rounded-lg bg-white/10 text-white 
+              focus:ring-2 focus:ring-white focus:border-white placeholder-white/50"
             />
             <span className="text-white/80">to</span>
             <input
               type="date"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
-              className="px-4 py-2 border rounded-lg bg-white/10 text-white focus:ring-2 focus:ring-white focus:border-white placeholder-white/50"
+              className="px-4 py-2 border rounded-lg bg-white/10 text-white 
+              focus:ring-2 focus:ring-white focus:border-white placeholder-white/50"
             />
           </div>
         </div>
