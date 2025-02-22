@@ -245,8 +245,8 @@ const Add = ({ token }) => {
               <option value="Kids">Kids</option>
               <option value="Babies">Babies</option>
               <option value="Socks">Socks</option>
-              <option value="Textiles">Textiles</option>
               <option value="Towels">Towels</option>
+              <option value="Textiles">Textiles</option>
             </select>
           </div>
 
@@ -268,8 +268,9 @@ const Add = ({ token }) => {
               <option value="Rotana">Rotana</option>
               <option value="Kalia">Kalia</option>
               <option value="Colors">Colors</option>
-              <option value="Bary">Bary</option>
-              <option value="Berlla">Berlla</option>
+              <option value="Konouz">Konouz</option>
+              <option value="Pantone">Pantone</option>
+              <option value="Elshafeay">Elshafeay</option>
             </select>
           </div>
         </div>

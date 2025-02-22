@@ -72,7 +72,7 @@ export const sizesOptions = {
   ],
   Socks: ["FREE-SIZE"],
   Textiles: ["FREE-SIZE"],
-  Towels: ["FREE-SIZE"],
+  Towels: ["50 * 100", "60 * 120", "70 * 140", "Toilet size"],
 };
 
 export const subCategoriesOptions = [
@@ -88,4 +88,7 @@ export const subCategoriesOptions = [
   "Rotana",
   "Kalia",
   "Colors",
+  "Konouz",
+  "Pantone",
+  "Elshafeay",
 ];
