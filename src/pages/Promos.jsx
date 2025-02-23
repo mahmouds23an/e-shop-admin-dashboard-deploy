@@ -11,6 +11,7 @@ const Promos = ({ token }) => {
     discountPercentage: "",
     endDate: "",
     isActive: true,
+    useManyTimes: true, // New attribute
   });
   const [editingId, setEditingId] = useState(null);
 
@@ -33,10 +34,28 @@ const Promos = ({ token }) => {
   // Handle input changes
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: type === "checkbox" ? checked : value,
-    }));
+
+    // If the useManyTimes checkbox is changed
+    if (name === "useManyTimes") {
+      const newUseManyTimes = checked;
+
+      // If useManyTimes is false, set endDate to one month from now
+      const newEndDate = newUseManyTimes
+        ? formData.endDate // Keep the existing endDate if useManyTimes is true
+        : new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split("T")[0]; // One month from now
+
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: newUseManyTimes,
+        endDate: newEndDate, // Update endDate based on useManyTimes
+      }));
+    } else {
+      // Handle other input changes normally
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: type === "checkbox" ? checked : value,
+      }));
+    }
   };
 
   // Add or update promo code
@@ -59,6 +78,7 @@ const Promos = ({ token }) => {
         discountPercentage: "",
         endDate: "",
         isActive: true,
+        useManyTimes: true, // Reset to default
       });
       setEditingId(null);
       toast.success(response.data.message || "Promo code saved successfully.");
@@ -76,6 +96,7 @@ const Promos = ({ token }) => {
       discountPercentage: promoCode.discountPercentage,
       endDate: new Date(promoCode.endDate).toISOString().substring(0, 10),
       isActive: promoCode.isActive,
+      useManyTimes: promoCode.useManyTimes, // Include the new attribute
     });
     setEditingId(promoCode._id);
   };
@@ -164,6 +185,18 @@ const Promos = ({ token }) => {
               className="form-checkbox h-5 w-5 text-blue-600"
             />
           </div>
+          <div className="mb-4 flex items-center">
+            <label className="block text-gray-700 text-sm font-bold mr-2">
+              Use Many Times:
+            </label>
+            <input
+              type="checkbox"
+              name="useManyTimes"
+              checked={formData.useManyTimes}
+              onChange={handleChange}
+              className="form-checkbox h-5 w-5 text-blue-600"
+            />
+          </div>
           <button
             type="submit"
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -183,6 +216,7 @@ const Promos = ({ token }) => {
               <th className="py-3 px-6 text-left">Discount %</th>
               <th className="py-3 px-6 text-left">End Date</th>
               <th className="py-3 px-6 text-left">Active</th>
+              <th className="py-3 px-6 text-left">Use Many Times</th>
               <th className="py-3 px-6 text-left">Actions</th>
             </tr>
           </thead>
@@ -207,6 +241,9 @@ const Promos = ({ token }) => {
                       : "No"}
                   </td>
                   <td className="py-3 px-6 text-left">
+                    {promoCode.useManyTimes ? "Yes" : "No"}
+                  </td>
+                  <td className="py-3 px-6 text-left">
                     <button
                       onClick={() => handleEdit(promoCode)}
                       className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-1 px-3 mr-2 rounded"
@@ -224,7 +261,7 @@ const Promos = ({ token }) => {
               ))
             ) : (
               <tr>
-                <td colSpan="5" className="text-center py-4">
+                <td colSpan="6" className="text-center py-4">
                   No promo codes available.
                 </td>
               </tr>
