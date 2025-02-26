@@ -27,6 +27,7 @@ const Add = ({ token }) => {
   const [loading, setLoading] = useState(false);
   const [discountStatus, setDiscountStatus] = useState(false);
   const [discountedPrice, setDiscountedPrice] = useState("");
+  const [collection, setCollection] = useState("Others");
 
   useEffect(() => {
     setAvailableSizes(sizesOptions[category]);
@@ -106,6 +107,7 @@ const Add = ({ token }) => {
       formData.append("sizes", JSON.stringify(sizes));
       formData.append("discountStatus", discountStatus);
       formData.append("discountedPrice", discountedPrice);
+      formData.append("collection", collection);
       image1 && formData.append("image1", image1);
       image2 && formData.append("image2", image2);
       image3 && formData.append("image3", image3);
@@ -361,6 +363,19 @@ const Add = ({ token }) => {
               />
             </div>
           )}
+        </div>
+
+        {/* Collection */}
+        <div className="flex items-center gap-3">
+          <p className="mb-2 text-sm font-semibold">Collection</p>
+          <select
+            onChange={(e) => setCollection(e.target.value)}
+            className="w-full px-3 py-1 border border-gray-300 rounded-md"
+          >
+            <option value="Others">Default</option>
+            <option value="Summer">Summer Collection</option>
+            <option value="Winter">Winter Collection</option>
+          </select>
         </div>
 
         {/* Submit Button */}
