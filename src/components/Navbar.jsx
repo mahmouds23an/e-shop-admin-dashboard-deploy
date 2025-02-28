@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
+import logo from "../assets/admin_assets/s23anNavBlack.png";
 
 const Navbar = ({ setToken }) => {
   return (
     <div className="flex items-center justify-between py-2 px-[4%]">
       <Link to={"/"}>
-        <img src="/AuraNav.png" className="w-[max(10%,80px)]" alt="" />
+        <img src={logo} className="w-[max(13%,100px)]" alt="" />
       </Link>
       <button
         onClick={() => setToken("")}
