@@ -27,7 +27,7 @@ const Add = ({ token }) => {
   const [loading, setLoading] = useState(false);
   const [discountStatus, setDiscountStatus] = useState(false);
   const [discountedPrice, setDiscountedPrice] = useState("");
-  const [collection, setCollection] = useState("Others");
+  const [clothesCollection, setCollection] = useState("Others");
 
   useEffect(() => {
     setAvailableSizes(sizesOptions[category]);
@@ -107,7 +107,7 @@ const Add = ({ token }) => {
       formData.append("sizes", JSON.stringify(sizes));
       formData.append("discountStatus", discountStatus);
       formData.append("discountedPrice", discountedPrice);
-      formData.append("collection", collection);
+      formData.append("clothesCollection", clothesCollection);
       image1 && formData.append("image1", image1);
       image2 && formData.append("image2", image2);
       image3 && formData.append("image3", image3);
@@ -273,6 +273,7 @@ const Add = ({ token }) => {
               <option value="Konouz">Konouz</option>
               <option value="Pantone">Pantone</option>
               <option value="Elshafeay">Elshafeay</option>
+              <option value="Others">Others</option>
             </select>
           </div>
         </div>
